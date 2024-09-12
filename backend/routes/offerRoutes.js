@@ -4,6 +4,7 @@ const router = express.Router()
 const Offer = require("../models/Offers")
 const upload=require('../utils/multer')
 const isAuth = require('../middlewares/isAuth')
+const cloudinary = require("../config/cloudinary")
 
 //get all offers
 router.get("/", async (req, res) => {
@@ -19,18 +20,31 @@ router.get("/", async (req, res) => {
 })
 
 //add new Offer
-router.post("/",upload("offers").single("file"),isAuth(),isAdmin, async (req, res) => {
-    try {
-        const url = `${req.protocol}://${req.get("host")}/${req.file.path}`
-        const newOffer = new Offer(req.body)
-        newOffer.logo=url
-        await newOffer.save()
-        res.send({ msg: "Offer  add succes", offer: newOffer })
-    } catch (error) {
-        console.log(error)
-        res.status(400).send(error.message)
+router.post("/", upload("offers").single("file"),async (req, res) => {
+      try {
+        if (!req.file) {
+          return res.status(400).send({ msg: "No file uploaded" });
+        }
+  
+        // Upload file to Cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path, {
+          upload_preset: "wmw1fun5",
+          allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
+        });
+  
+        // Create the new offer
+        const newOffer = new Offer(req.body);
+        newOffer.logo = result.secure_url; // Assign Cloudinary URL to offer's logo
+        await newOffer.save();
+  
+     return    res.status(201).send({ msg: "Offer added successfully", offer: newOffer });
+      } catch (error) {
+        console.log(error);
+      
+      }
     }
-})
+  );
+  
 
 //get one offer
 router.get("/:id",isAuth(),isAdmin, async (req, res) => {
@@ -41,7 +55,7 @@ router.get("/:id",isAuth(),isAdmin, async (req, res) => {
     }
     catch (error) {
         console.log(error)
-        res.status(400).send(error.message)
+     return    res.status(400).send(error.message)
     }})
 
 //edit offer
@@ -62,7 +76,7 @@ router.put("/:id",upload("offers").single("file"),isAuth(),isAdmin, async (req, 
     }
      catch (error) {
         console.log(error)
-        res.status(400).send(error.message)
+      return    res.status(400).send(error.message)
     }
 })
 
@@ -76,6 +90,6 @@ router.delete("/:id", isAuth(),isAdmin,async (req, res) => {
         } res.status(400).send({ msg: "aleardy delete" })
     } catch (error) {
         console.log(error)
-       res.status(400).send(error.message)
+    return   res.status(400).send(error.message)
     }})
 module.exports = router
