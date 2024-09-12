@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 })
 
 //add new Offer
-router.post("/", upload("offers").single("file"),async (req, res) => {
+router.post("/", upload("offers").single("file"),isAuth(),isAdmin,async (req, res) => {
       try {
         if (!req.file) {
           return res.status(400).send({ msg: "No file uploaded" });
@@ -47,7 +47,7 @@ router.post("/", upload("offers").single("file"),async (req, res) => {
   
 
 //get one offer
-router.get("/:id",isAuth(),isAdmin, async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
      
    const oneOffer = await Offer.findById(req.params.id)
