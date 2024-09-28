@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 function ReceptionRoutes({children}) {
-    const admin=useSelector(state => state.userReducer.currentUser)
+    const user=useSelector(state => state.userReducer.currentUser)
     const token=localStorage.getItem('token')
-    const adminValidator=admin.role
+    const role=user.role
   return (
-    <div>  {token && adminValidator=="reception" ?children:<Navigate to="/" /> }</div>
+    <>  {token && role=="reception"   ?children:<Navigate to="/" /> }</>
   )
 }
 

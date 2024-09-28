@@ -1,9 +1,13 @@
 .fr{ background-color: rgb(192, 192, 187);
     width:30%;
 margin: auto;
+margin-top: 4px;
 border-radius: 7%;
 opacity: 0.91;
-height: 700px;
+height: 630px;
+text-align: center;
+position: absolute;
+left:30%;
 }
 .ba{
     height: 800px;
@@ -12,9 +16,10 @@ height: 700px;
     background-size: 1500px;
 }
 
-#b{
+.b{
     display: flex;
 justify-content: space-around;
+
 }
 
 .tit{
@@ -22,4 +27,32 @@ justify-content: space-around;
     display: flex;
     justify-content: center;
    color: #176490;
+}
+.sp_opt{
+  position: absolute;
+  color: blue;
+left:1%;
+top:55%
+}
+@media screen and ( max-width: 700px){
+    .fr{
+        font-size:0.8em;
+        border-radius: 2%;
+        height: 610px;
+        width:32%
+    }
+    .btn_subscribe{
+        padding: 0%;
+        width: 90%;
+        height: 7%;
+        font-size: 0.8em;
+    }
+    .sp_opt{
+        position: absolute;
+        top: 53%;
+    
+     }
+     .file{
+        font-size: 0.5rem;
+     }
 }

@@ -3,20 +3,32 @@
     background-image: url("./pa.jpg");
     background-repeat: no-repeat ;
     background-size: 1500px;
+    text-align: center;
 }
-#p{
-    margin-top: 0;
+.pay_form{
+    position: relative;
+    top:40px;
+
 }
 .dl{font-size: large;
    font-family: fantasy;
-   margin-left: 100px;
-   margin-top: 22px;
+ width: auto;
 }
-#bpay{
+.bpay{
     margin-top: 38px;
     display: flex;
     justify-content: space-around;
 }
-#news{
+.news{
     color: blue;
+}
+@media screen and (max-width:470px) {
+    .pay_form{
+        width:90%;
+        font-size: 0.6em;
+        text-align: center;
+    }
+    .input_pay {
+        width:80%
+    }
 }

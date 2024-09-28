@@ -1,49 +1,48 @@
-.baku{background-repeat: no-repeat;
-    animation-name: bak;
-    animation-duration: 25s;
-height: 700px;
-background-image:url("./stoc.jpg")
-}
-@keyframes bak {
-   from {background-image:url("./axio.jpg"); 
-        }
-    to {background-image:url("./stoc.jpg");}
-  }
+.profile{background-repeat: no-repeat;
   
-#bp{
+height:700px;
+background-image:url("./axio.jpg");
+text-align: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.bp{
     margin-top: 15px;
     margin-left: 90px;
     display: flex;
     justify-content: space-between;
 }
-#dlogout{
+.dlogout{
         margin-left: 55px;
     }
-#logout{
+.logout{
     height: 40px;
 }
-#payp{
-    position: relative;
-    margin-left: 950px;
-  margin-top: 20px;  
-}
-#payb{
+.payb{
     width: 150px;
-    
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-bottom: 50px;
 }
-#uinfo{ background-color: beige;
+.user_info{ background-color: beige;
     margin-top: 18px;
     margin-left: 20px;
     margin-right: 150px;
     border-radius: 2%;
     opacity: 0.92;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline
 }
-
-#navpro{
+.info{
+    width: 100%;
+}
+.navpro{
     display: flex;
     justify-content: space-around;
 }
-#name{
+.name{
     margin-left: 10px;
     
     font-weight:bolder;
@@ -54,12 +53,17 @@ background-image:url("./stoc.jpg")
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-#userinscri{
+.userinscri{
     font-weight: 500 ;
   font-size: larger;
 }
-#editp{margin-top: 5px;
+.editdiv{
+    display: flex;
+    justify-content: flex-start;
+}
+.editp{margin-top: 5px;
     margin-left: 5px;
     width: 35px;
     border-style: hidden;
@@ -69,4 +73,23 @@ background-image:url("./stoc.jpg")
 .fa-solid{
     width: 26px;
     font-size: medium;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    height:auto
+}
+@media screen and (max-width:700px) {
+    .profile,p{
+        font-size: 0.6em;
+       
+    }
+}
+@media screen and (max-width:400px) {
+    .user_info{
+        width: 100%;
+       margin-left:auto;
+    
+    }
 }

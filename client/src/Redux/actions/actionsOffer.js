@@ -14,7 +14,7 @@ export const getAllOffers = () => async (dispatch) => {
     });
   }
   catch (err) {
-    console.log(err)
+
     dispatch({
       type: GET_ALLOFFERS_FAIL,
       payload: err.message
@@ -34,7 +34,7 @@ export const addOffer = (offerBody,navigate) => async (dispatch) => {
      navigate('/admin')
     }
     catch (err) {
-      console.log(err)
+
       dispatch({
         type: ADD_OFFER_FAIL,
         payload: err.message
@@ -45,7 +45,7 @@ export const editOffer = (id, offerBody, navigate) => async (dispatch) => {
       const token=localStorage.getItem('token');
       try {
         const resOffer = await axios.put(`/api/offer/${id}`, offerBody,{ headers: { Authorization: `Bearer ${token}` }})
-        console.log(resOffer);
+        
         dispatch({
           type: EDIT_OFFER_SUCCESS,
           payload: resOffer.data.offer
@@ -53,7 +53,7 @@ export const editOffer = (id, offerBody, navigate) => async (dispatch) => {
          navigate('/admin')
       }
       catch (err) {
-        console.log(err)
+   
         dispatch({
           type: EDIT_OFFER_FAIL,
           payload: err.message
@@ -73,7 +73,7 @@ export const getOneOffer= (id) => async (dispatch) => {
           });
         }
         catch (err) {
-          console.log(err)
+    
           dispatch({
             type: GET_ONEOFFER_FAIL,
             payload: err.message
@@ -89,7 +89,7 @@ export const getOneOffer= (id) => async (dispatch) => {
             })
             dispatch(getAllOffers())
           } catch (error) {
-            console.log(error);
+            
             dispatch({
               type:DELETE_ONEOFFER_FAIL
             })

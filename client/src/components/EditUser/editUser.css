@@ -1,15 +1,27 @@
-.edituser{
-    width: 60%;
-    margin-left: 80px;
+.edit_user{
+    width: 45%;
+    margin-left: 20%;
     margin-top: 50px;
-    
-    height: 300px;
-border-radius: 5%;
-opacity: 0.93;
+display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:7px;
+    background-color: grey;
+    border-radius: 2%;
+    opacity: 0.8;
+ padding: 3px 2%;
 }
-#username{
+.username{
     margin-top: 8px;
     margin-left: 80px;
     font-weight: bold;
     font-size: x-large;
+}
+.form_control,.form_select{
+    width:60%
+}
+@media screen and (max-width:700px) {
+    .edit_user,.btn_edit{
+        font-size: 0.7rem;
+    }
 }

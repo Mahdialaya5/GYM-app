@@ -1,0 +1,96 @@
+.btns{
+    
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around
+}
+.btn-gym {
+    background-image: linear-gradient( #4c9eaf, grey); 
+  color: white; 
+  border: none;
+  border-radius: 25px; 
+  padding: 12px 30px; 
+  font-size: 18px; 
+  font-weight: bold; 
+  margin-right: 7px;
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
+  
+.l{
+    margin-left: 40px;
+ max-height: 50px;
+}
+.s{
+    margin-left: 40px;
+    max-height: 50px;
+}
+
+
+.nh{display: flex;
+    justify-content: space-evenly;
+    height: 90px;
+    background:transparent;
+}
+
+.sig{
+    margin-left: 28px;
+}
+.logout{
+    height: 40px;
+    margin-left: 15px;
+}
+.logo{
+    margin-top: 20px;
+    display: inline;
+    font-family: fantasy;
+    color: rgb(2, 0, 100);
+    background-color: grey;
+    border-radius: 38%;
+    height: 1.4em;
+    width: 12%;
+   text-align: center;
+   font-style: italic;
+   font-size: 3.3em;
+}
+.sig{
+    margin-right: 20px;
+}
+@media screen and (max-width: 1150px) {
+    .logo{
+        padding: 0%;
+        font-size: 3rem;
+        width: 16%;
+    }
+   
+}
+@media screen and (max-width: 620px) {
+    .logo{
+        
+        font-size: 2.5rem;
+        width: 16%;
+    }
+    .btn-gym{
+       width:85%;
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    .logo{
+
+        font-size: 2rem;
+    }
+    .btn-gym{
+
+         font-size: 0.6rem;   
+     }
+ 
+}
+@media screen and (max-width: 375px){
+    .logo{
+        width:20%;
+        margin-top: 26px;
+        font-size: 1.7rem;
+    }
+}

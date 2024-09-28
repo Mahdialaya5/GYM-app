@@ -29,14 +29,14 @@ const handleSubmit = (e) => {
 
   return (
     <div  className='pay' >
-       <div className="log" id='p' >
+       <div className="login_form pay_form"  >
     <div className="form-floating">
-      <input onChange={(e)=>setpayé(e.target.value)}  type="Number" className="form-control" id="floatingInput" />
+      <input onChange={(e)=>setpayé(e.target.value)}  type="Number" className="form-control input_pay " id="floatingInput" />
       <label for="floatingInput">N° compte bancaire </label>
-       <p className='dl' ><span id='news'  >NEW SUBSCRIBE:</span> {user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)} to {user.subscribeDeadline&&getDead()} </p>
+       <p className='dl' ><span className='news'  >NEW SUBSCRIBE:</span>21/23/2131 {user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)} to 21/32/3256{user.subscribeDeadline&&getDead()} </p>
       <br/>
     </div>
-    <div  id='bpay'>
+    <div  className='btns_login'>
       <button type="button" onClick={(e)=>handleSubmit()} className="btn btn-success">pay</button>
        <Link  to={"/profile"}><button type="button"  className="btn btn-success">return</button></Link>
        </div>

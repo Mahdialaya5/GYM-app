@@ -1,27 +1,44 @@
-.log{
-    background-color: rgb(192, 192, 187);
-        width:40%;
-        margin: auto;
-    
-    border-radius: 7%;
-    opacity: 0.89;
-    height: 250px;
-    }
-.blog{
-    
+.login_page{
+    padding-top: 50px;
     height: 657px;
     background-image: url("./ist.jpg");
     background-repeat: no-repeat ;
     background-size:cover ;
 }   
-#login{
-    margin-top: 29px;
+.login_form{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(192, 192, 187);
+    width:40%;
+    margin: auto;
+   border-radius: 7%;
+  opacity: 0.89;
+  height: auto;
+  padding: 2% 5%;
 }
-#hlogin{
+.login_text{
     font-weight: bold;
     font-style: italic;
     margin-left: 600px;
     color: rgb(4, 56, 56);
+}
+.btns_login{
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+}
+@media screen and ( max-width: 760px){
+    .btn_l,a{
+        width:97%;
+     padding: 0%;
+    }
+    .login_form{
+        font-size: 0.8em;
+    }
+    .btns_login{
+        justify-content: space-between;
+        width:90%
+    }
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_FAIL, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_FAIL, EDIT_USER, EDIT_USER_FAIL, GET_ALLUSERS_FAIL, GET_ALLUSERS_SUCCESS, GET_CURRENT_FAIL, GET_CURRENT_SUCCESS, GET_USERS_FAIL, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, PAY, PAY_FAIL, SEARCH } from "../const/const_user";
+import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_FAIL, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_FAIL, EDIT_USER, EDIT_USER_FAIL, GET_ALLUSERS_FAIL, GET_ALLUSERS_SUCCESS, GET_CURRENT_FAIL, GET_CURRENT_SUCCESS, GET_USERS_FAIL, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, NAVIGATE, PAY, PAY_FAIL, SEARCH } from "../const/const_user";
 
 
 export const addUser = (userBody,navigate) => async (dispatch) => {
@@ -12,7 +12,7 @@ export const addUser = (userBody,navigate) => async (dispatch) => {
     navigate('/profile')
       }
     catch (err) {
-      console.log(err)
+ 
       dispatch({
         type: ADD_USER_FAIL,
         payload: err.response.data
@@ -33,7 +33,7 @@ export const login = (loginUser, navigate) => async (dispatch) => {
                  return navigate("/profile") }
     } 
        catch (err) {
-          console.log(err);
+    
           dispatch({ 
              type: LOGIN_FAIL,
               payload: err.response.data })
@@ -58,7 +58,7 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
         try {
          
           const resUser = await axios.put(`/api/user/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
-           console.log(resUser);
+        
           dispatch({
             type: EDIT_USER,
             payload:resUser.data
@@ -66,7 +66,7 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
            navigate('/profile')
         }
         catch (err) {
-          console.log(err)
+         
           dispatch({
             type: EDIT_USER_FAIL,
             payload:err.response.data
@@ -78,7 +78,7 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
 export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
         const token = localStorage.getItem("token");
         try {
-          const resUser = await axios.put(`/api/user/current/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
+          const resUser = await axios.put(`/api/user/payonline/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
            dispatch({
             type: EDIT,
             payload:resUser.data
@@ -86,7 +86,7 @@ export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
            navigate('/profile')
         }
         catch (err) {
-          console.log(err)
+     
           dispatch({
             type: EDIT_FAIL,
             payload: err.message
@@ -97,7 +97,9 @@ export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
 export const logout = () => {
         return { type: LOGOUT } 
       }
-
+export const empty=()=>{
+  return {type:NAVIGATE}
+}
    //admin
 export const getAllUsers = () => async (dispatch) => {
        const token = localStorage.getItem("token");
@@ -112,7 +114,7 @@ export const getAllUsers = () => async (dispatch) => {
         });
       }
       catch (err) {
-        console.log(err)
+ 
         dispatch({
           type: GET_ALLUSERS_FAIL,
           payload: err.message
@@ -135,7 +137,7 @@ export const getUsers = () => async (dispatch) => {
             });
           }
           catch (err) {
-            console.log(err)
+          
             dispatch({
               type: GET_USERS_FAIL,
               payload: err.message
@@ -147,7 +149,8 @@ export const getUsers = () => async (dispatch) => {
               try {
            
                 const resUser = await axios.put(`/api/user/reception/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
-                console.log("resUser",resUser);
+              
+
                 dispatch({
                   type:PAY,
                   payload:resUser.data
@@ -155,7 +158,7 @@ export const getUsers = () => async (dispatch) => {
                 dispatch(getUsers())
               }
               catch (err) {
-                console.log(err)
+         
                 dispatch({
                   type: PAY_FAIL,
                   payload: err.message
@@ -171,7 +174,7 @@ export const deleteUser = (id) => async (dispatch) => {
               })
               dispatch(getUsers())
             } catch (error) {
-              console.log(error);
+           
               dispatch({
                 type:DELETE_ONEUSER_FAIL
               })

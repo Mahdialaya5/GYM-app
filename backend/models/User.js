@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         let deadline = new Date(this.subscribe);
         deadline.setDate(deadline.getDate() + 30);
         return deadline;}},
-    role: { type: String, enum: ["guest", "user", "admin", "reception"] ,default:"user"}
+    role: { type: String, enum: ["user", "admin", "reception"] ,default:"user"}
 })
 const User = mongoose.model("user", userSchema)
 module.exports = User

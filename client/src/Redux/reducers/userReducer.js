@@ -1,4 +1,4 @@
-import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_USER,  EDIT_USER_FAIL,  GET_ALLUSERS_SUCCESS, GET_CURRENT_SUCCESS, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SEARCH } from "../const/const_user"
+import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_USER,  EDIT_USER_FAIL,  GET_ALLUSERS_SUCCESS, GET_CURRENT_SUCCESS, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, NAVIGATE, SEARCH } from "../const/const_user"
 
 const InitialSate = {
     errors: null,
@@ -20,6 +20,8 @@ export const userReducer = (state = InitialSate, { type, payload }) => {
                 return { ...state, currentUser: payload.user }
         case LOGIN_FAIL:
             return { ...state, errors: payload }
+        case NAVIGATE:
+                return { ...state, errors: null }
         case GET_CURRENT_SUCCESS:
             return { ...state,currentUser: payload.user}
         case EDIT:

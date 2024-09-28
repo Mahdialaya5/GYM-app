@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./signup.css"
 import {Link,  useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser } from '../../Redux/actions/actionsUser'
+import { addUser, empty } from '../../Redux/actions/actionsUser'
 import Alert from '../Alert/Alert'
 
 function Signup() {
@@ -12,33 +12,30 @@ function Signup() {
  const [newPassword, setpassword] = useState("")
  const [newName, setname] = useState("")
  const [newSport, setsport] = useState("musculation")
- const [compte, setcompte] = useState("")
- const [image, setimage] = useState()
+
+ const [image, setimage] = useState(null)
  const navigate = useNavigate()
   const disptach=useDispatch()
  
  const handleSubmit = (e) => {
-   if(image==null) 
-   {alert(" please add your photo") }
-  const data = new FormData();
+      disptach(empty())
+   const data = new FormData();
     data.append("specialty", newSport)
     data.append("password", newPassword)
     data.append("email", newEmail)
     data.append("name",newName)
-    data.append("file",image)
- if(compte.length==20){
-    disptach(addUser(data, navigate))}
-    else alert("N° compte bancaire must 20 number")
-   
-    };
+   if(image!==null) 
+   {  data.append("file",image)}
+   disptach(addUser(data, navigate))
+ };
     
 
   
 
  return (
  <div  className='ba'>
-    <h2 className='tit'>signup</h2>
     <div className="fr" >
+    <h2 className='tit'>signup</h2>
      <div className="form-floating">
       <input onChange={(e)=>setEmail(e.target.value)}  type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
       <label for="floatingInput">Email </label>
@@ -55,29 +52,25 @@ function Signup() {
       <br/>
     </div>
     <div className="checkbox mb-3">
-    <select className="form-select" id="floatingSelectGrid" defaultValue={"musculation"}  onChange={(e)=>setsport(e.target.value)} >
+    <select className="form-select" id="floatingSelectGrid" defaultValue={"musculation"}   onChange={(e)=>setsport(e.target.value)} >
         {list&&list.map((el)=><option key={el._id} value={el.specialty}>{el.specialty}</option>)}
-        
+      
       </select>
       <br/>
+      <br/>
+    <span className='sp_opt' >*optional</span>
       <div className="form-floating">
-      <input  onChange={(e)=>setcompte(e.target.value)} type="number" className="form-control" id="floatingPassword"  />
-      <label  for="floatingPassword">N°compte bancaire</label>
-    </div>
-    <br/>
-    <br/>
-      <div className="form-floating">
-      <input type="file" onChange={(e)=>setimage(e.target.files[0])}   className="form-control" id="floatingPassword"  />
+      <input type="file" onChange={(e)=>setimage(e.target.files[0])}   className="form-control file" id="floatingPassword"  />
       <label   for="floatingPassword">photo</label>
     </div><Alert/>
     <br/>
     </div>
-    <button   onClick={(e)=>handleSubmit()}  className="w-100 btn btn-lg btn-primary" type="submit">Sign up and subscribe</button>
+    <button   onClick={(e)=>handleSubmit()}  className=" btn  btn-primary btn_subscribe" type="submit">Sign up and subscribe</button>
     <br/>
     <br/>
-    <div id='b'>
-    <Link to={"/"} ><button type="button" id="ret" className="btn btn-success ">return</button></Link>
-    <Link  to={"/login"} ><button type="button" id="log" className="btn btn-success">login</button></Link>
+    <div className='b'>
+    <Link  to={"/login"} ><button type="button" onClick={disptach(empty())} className="btn_l btn btn-success log ">login</button></Link>
+    <Link to={"/"} ><button type="button"  onClick={disptach(empty())}  className="btn_l btn btn-success  ret">return</button></Link>
    </div>
     </div >
     </div>
