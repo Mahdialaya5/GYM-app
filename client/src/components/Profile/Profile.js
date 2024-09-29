@@ -26,14 +26,14 @@ function Profile() {
    <div className='editdiv' > <button className='editp'  ><Link to={`/edituser/${user._id}`}  ><i className="fa-solid fa-pencil"></i></Link></button>   </div>
 <div className='flxuser' >
 
-  <div  className='user' > <span className='name ' > {user.name&&user.name.toUpperCase()}</span>
-   <h3 className='userinscri p'   > {user.inscription&&user.inscription.slice(0,10)}</h3></div>
+  <div  className='user' > <span className='name ' >fdgdfgdf {user.name&&user.name.toUpperCase()}</span>
+   <h3 className='userinscri p' >fgdfgdg {user.inscription&&user.inscription.slice(0,10)}</h3></div>
    
 
  <div> 
-  <h3 className="p">{user.specialty}</h3>
-  <h3 className="p"> {user.subscribe&&user.subscribe.slice(0,10)}</h3>
-  <h3 className="p">{user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)}</h3>
+  <h3 className="p">sport:{user.specialty}</h3>
+  <h3 className="p">subscribe: {user.subscribe&&user.subscribe.slice(0,10)}</h3>
+  <h3 className="p">deadline subscribe:{user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)}</h3>
 </div>
 </div>
 </div>

@@ -39,7 +39,8 @@ top:55%
         font-size:0.8em;
         border-radius: 2%;
         height: 610px;
-        width:32%
+        width:50%;
+        left:25%;
     }
     .btn_subscribe{
         padding: 0%;

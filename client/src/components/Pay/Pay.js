@@ -33,7 +33,7 @@ const handleSubmit = (e) => {
     <div className="form-floating">
       <input onChange={(e)=>setpayé(e.target.value)}  type="Number" className="form-control input_pay " id="floatingInput" />
       <label for="floatingInput">N° compte bancaire </label>
-       <p className='dl' ><span className='news'  >NEW SUBSCRIBE:</span>21/23/2131 {user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)} to 21/32/3256{user.subscribeDeadline&&getDead()} </p>
+       <p className='dl' ><span className='news'  >NEW SUBSCRIBE:</span>{user.subscribeDeadline&&user.subscribeDeadline.slice(0,10)} to {user.subscribeDeadline&&getDead()} </p>
       <br/>
     </div>
     <div  className='btns_login'>

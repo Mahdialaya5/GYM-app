@@ -5,7 +5,7 @@ function Alert() {
   const err = useSelector(state => state.userReducer.errors)
 
   return(
-  <p id='err_reg'>
+  <p className='err'>
     {err&&err.msg?<p>{err.msg}</p>:
     err&& err.errors[0].msg ?   <p>{err.errors[0].msg }</p>: 
    err&& err.errors[1].msg? <p>{err.errors[1].msg }</p>: null  }

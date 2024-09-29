@@ -36,9 +36,11 @@
     }
     .login_form{
         font-size: 0.8em;
+        width:60%;
     }
     .btns_login{
         justify-content: space-between;
         width:90%
     }
+   
 }
