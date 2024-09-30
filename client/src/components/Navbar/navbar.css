@@ -4,6 +4,9 @@
     display: flex;
     justify-content: space-around
 }
+.btn-logout{ height: 60px;
+    margin-top: 5px;
+}   
 .btn-gym {
     background-image: linear-gradient( #4c9eaf, grey); 
   color: white; 
@@ -74,6 +77,12 @@
     .btn-gym{
        width:85%;
         font-size: 0.9rem;
+    }
+    .l{
+        width: auto;
+    }
+    .btn-logout{
+        width:25%
     }
 }
 @media screen and (max-width: 425px) {

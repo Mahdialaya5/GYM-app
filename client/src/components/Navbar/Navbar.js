@@ -17,10 +17,10 @@ function Navbar() {
   {token? null:<><Link to={"/login"}> <button type="button"  className="btn-gym ">signin</button> </Link>
  <Link to={"/signup"}><button type="button"  className="btn-gym">subscribe</button></Link></>}
  </div>
- {!token || user.role=="admin"|| user.role=="reception" ?null:<Link to={"/profile"}><button type="button"  className="btn-gym ">profile</button></Link>}
- {token && user.role=="admin" ? <Link to={"/admin"}><button type="button"  className="btn-gym ">admin profile</button></Link>:null}
- {token && user.role=="reception" ? <Link to={"/reception"}><button type="button"  className="btn-gym ">reception profile</button></Link>:null}
- {token?<button onClick={() => disptach(logout(),naviagte("/"))}  type="button"  className="btn-gym">logout</button>:null}
+ {!token || user.role=="admin"|| user.role=="reception" ?null:<Link to={"/profile"}><button type="button"  className="btn-gym l ">profile</button></Link>}
+ {token && user.role=="admin" ? <Link to={"/admin"}><button type="button"  className="btn-gym l ">admin profile</button></Link>:null}
+ {token && user.role=="reception" ? <Link to={"/reception"}><button type="button"  className="btn-gym l">reception profile</button></Link>:null}
+ {token?<button onClick={() => disptach(logout(),naviagte("/"))}  type="button"  className="btn-logout btn-gym">logout</button>:null}
 </nav>
   )
 }
