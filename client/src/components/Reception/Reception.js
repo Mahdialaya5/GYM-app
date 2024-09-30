@@ -8,14 +8,13 @@ import "./reception.css"
 function Reception() {
 
   const naviagte=useNavigate()
-  const disptach=useDispatch()
+  const dispatch=useDispatch()
   const Users = useSelector(state => state.userReducer.allUsers)
   const Name=useSelector(state=>state.userReducer.currentUser)
 
 useEffect(() => {
-    disptach(getUsers())
+    dispatch(getUsers())
      }, [])
-
 
 
   return (
@@ -23,9 +22,9 @@ useEffect(() => {
     <div className='list' >
       <h2 className='adm' > RECEPTION NAME: {Name.name.toUpperCase()}</h2>
      <Link to={"/"} ><button type="button"  id='hre'  className="btn btn-primary">Home</button></Link> 
-     <button type="button" onClick={() => disptach(logout(),naviagte("/"))}  id="outrec" className="btn btn-success">logout</button>
+     <button type="button" onClick={() => dispatch(logout(),naviagte("/"))}  id="outrec" className="btn btn-success">logout</button>
    <ul><h1 id='userlist' > Users </h1>
-   <input type="text" placeholder='SEARCH' onChange={(e)=>disptach(searchUser(e.target.value))}  className="form-control sr" id="floatingInput" />
+   <input type="text" placeholder='SEARCH' onChange={(e)=>dispatch(searchUser(e.target.value))}  className="form-control sr" id="floatingInput" />
     </ul>
     <div className="container">
   <div className="row">
@@ -45,7 +44,7 @@ useEffect(() => {
             <tbody className='dlu'  >
            
 
-            {Users&&Users.map((el)=>el.role=="admin"||el.role=="reception"?null:<tr key={el._id} >
+            {Users&&Users.map((el)=>el.role==="admin"||el.role==="reception"?null:<tr key={el._id} >
                 <td id='tduse'  >
                {el.imgsrc ?  <img src={el.imgsrc}  style={{width:"50px",borderRadius:"20%"}} alt='user' />:<Avatar/>}
                  <h6>{el.name}</h6> 

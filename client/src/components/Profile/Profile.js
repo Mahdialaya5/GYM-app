@@ -19,17 +19,13 @@ function Profile() {
     
     <div  className='profile' >
         <Navbar/>
-        
-     <div className='user_info' >
+       <div className='user_info' >
       {user.imgsrc ?  <img src={user.imgsrc}  style={{  width:"150px",borderRadius:"20%"}} alt={<ImgProfile />} />:<ImgProfile />}
       <div  className='info' >
    <div className='editdiv' > <button className='editp'  ><Link to={`/edituser/${user._id}`}  ><i className="fa-solid fa-pencil"></i></Link></button>   </div>
 <div className='flxuser' >
-
-  <div  className='user' > <span className='name ' >{user.name&&user.name.toUpperCase()}</span>
+ <div  className='user' > <span className='name ' >{user.name&&user.name.toUpperCase()}</span>
    <h3 className='userinscri p' > {user.inscription&&user.inscription.slice(0,10)}</h3></div>
-   
-
  <div> 
   <h3 className="p">sport:{user.specialty}</h3>
   <h3 className="p">subscribe: {user.subscribe&&user.subscribe.slice(0,10)}</h3>

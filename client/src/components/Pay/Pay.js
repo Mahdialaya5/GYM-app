@@ -21,7 +21,7 @@ const [payé, setpayé] = useState("")
 
 
 const handleSubmit = (e) => {
-    if(payé.length==20)
+    if(payé.length===20)
         { 
            disptach(newSubscribe(user._id,{subscribe:user.subscribeDeadline},navigate))}
         else alert ("n° compte bancaire must 20 number")

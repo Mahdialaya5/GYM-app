@@ -8,14 +8,13 @@ import Avatar from '../Avatar'
 
 function Admin() {
   const naviagte=useNavigate()
-  const disptach=useDispatch()
+  const dispatch=useDispatch()
   const listUsers = useSelector(state => state.userReducer.allUsers)
   const Name=useSelector(state=>state.userReducer.currentUser)
  
  
   useEffect(() => {
-    disptach(getAllUsers  ())
-  
+    dispatch(getAllUsers())
      }, [])
     
 
@@ -26,7 +25,7 @@ function Admin() {
     <div id='add' >
   <Link to={"/add"} ><button type="button"  className="btn btn-primary">add offer</button></Link>
   <Link to={"/"} ><button type="button"  className="btn btn-primary">Home</button></Link>
-  <button type="button" onClick={() => disptach(logout(),naviagte("/"))} className="btn btn-success">logout</button>
+  <button type="button" onClick={() => dispatch(logout(),naviagte("/"))} className="btn btn-success">logout</button>
   </div>
   <div id='backadmin' >
    <br/>
@@ -37,7 +36,7 @@ function Admin() {
   <br/>
    <div className='list' >
    <ul><h1 id='userlist' > Users </h1>
-   <input type="text" placeholder='SEARCH' onChange={(e)=>disptach(searchUser(e.target.value))}   className="form-control sr srch" id="floatingInput" />
+   <input type="text" placeholder='SEARCH' onChange={(e)=> dispatch(searchUser(e.target.value))}   className="form-control sr srch" id="floatingInput" />
 </ul>
 <div className="container">
   <div className="row">
@@ -57,7 +56,7 @@ function Admin() {
             <tbody>
              
              
-              {listUsers&&listUsers.map((el)=>el.role=="admin"||el.role=="reception"?null:<tr key={el._id} >
+              {listUsers&&listUsers.map((el)=>el.role==="admin"||el.role==="reception"?null:<tr key={el._id} >
                 <td>
                 {el.imgsrc ?  <img src={el.imgsrc}  style={{width:"50px",borderRadius:"20%"}} alt='user'/>:<Avatar/>}
                  <h6>{el.name}</h6> 

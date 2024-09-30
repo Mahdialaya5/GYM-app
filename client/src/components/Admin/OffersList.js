@@ -11,7 +11,7 @@ function OffersList() {
 const handlesubmit=(id)=>{
   
    let msg=window.confirm("Press a button!");
-   if(msg==true){    
+   if(msg===true){    
    dispatch(deleteOffer(id))
    }
   }
