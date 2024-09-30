@@ -19,7 +19,7 @@ const handlesubmit=(id)=>{
 return (
     <div className='flx' >
     {list.map((el)=>  <div className="card" key={el._id} style={{width: '18rem'}}>
-    <img src={el.logo} className="card-img-top" alt="..." />
+    <img src={el.logo} className="card-img-top" alt="offer" />
     <div className="card-body">
       <h5 className="card-title">{el.specialty}</h5>
        <p className="card-text"> {el.planing}</p>
