@@ -63,10 +63,10 @@ useEffect(() => {
                 <td style={{width: '18%'}}>
                 {el.subscribeDeadline&&el.subscribeDeadline.slice(0,10)}
                 </td><td>
-               < button type="button"   onClick={()=>disptach(paySubscribe(el._id,{subscribe:el.subscribeDeadline}))}  className="btn btn-info">pay</button>
+               < button type="button"   onClick={()=>dispatch(paySubscribe(el._id,{subscribe:el.subscribeDeadline}))}  className="btn btn-info">pay</button>
                </td>
                <td>
-               < button type="button" onClick={()=>disptach(deleteUser(el._id))} className="btn btn-danger">delete</button>
+               < button type="button" onClick={()=>dispatch(deleteUser(el._id))} className="btn btn-danger">delete</button>
                </td> 
                 </tr>)}
                
