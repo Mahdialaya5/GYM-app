@@ -59,7 +59,7 @@ function Admin() {
              
               {listUsers&&listUsers.map((el)=>el.role=="admin"||el.role=="reception"?null:<tr key={el._id} >
                 <td>
-                {el.imgsrc ?  <img src={el.imgsrc}  style={{width:"50px",borderRadius:"20%"}} alt={<Avatar/> }/>:<Avatar/>}
+                {el.imgsrc ?  <img src={el.imgsrc}  style={{width:"50px",borderRadius:"20%"}} alt='user'/>:<Avatar/>}
                  <h6>{el.name}</h6> 
                  {el.specialty}
                   <span className="user-subhead"></span>
