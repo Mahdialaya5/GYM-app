@@ -15,7 +15,7 @@ function Admin() {
  
   useEffect(() => {
     dispatch(getAllUsers())
-     }, [])
+     }, [dispatch])
     
 
   return (
