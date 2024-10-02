@@ -1,7 +1,7 @@
 const isReception = (req, res, next) => {
-    if (req.user.role == "reception") {
+    if (req.user.role === "reception") {
         next()
-      
+      return 
     }
    return  res.status(401).send({msg: "access denied"})
 }

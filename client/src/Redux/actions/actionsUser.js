@@ -150,7 +150,6 @@ export const getUsers = () => async (dispatch) => {
            
                 const resUser = await axios.put(`/api/user/reception/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
               
-
                 dispatch({
                   type:PAY,
                   payload:resUser.data

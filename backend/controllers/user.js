@@ -117,7 +117,7 @@ exports.payonline = async(req, res) => {
 exports.getAllUsers =  async (req, res) => {
     try {
         const users = await User.find().sort({name:1})
-         return   res.send( users )
+         return   res.send(users)
     } catch (error) {
         return  res.status(500).send({ msg: error.message });
  }}
