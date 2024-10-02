@@ -13,7 +13,7 @@ function Profile() {
   
   useEffect(() => {
     dispatch(getCurrent())
-  }, [])
+  }, [dispatch])
 
   return (
     

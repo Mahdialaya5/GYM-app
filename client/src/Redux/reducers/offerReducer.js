@@ -23,7 +23,7 @@ export const offerReducer = (state = IntialState, { type, payload }) => {
                 case GET_ONEOFFER_FAIL:
                     return { ...state, errors: payload }
                 case EDIT_OFFER_SUCCESS:
-                    return { ...state, offers: state.offers.map(el => el._id == payload._id ? payload : el) }
+                    return { ...state, offers: state.offers.map(el => el._id === payload._id ? payload : el) }
                     case DELETE_ONEOFFER_SUCCESS :
                         return {...state, offers:[]}
                

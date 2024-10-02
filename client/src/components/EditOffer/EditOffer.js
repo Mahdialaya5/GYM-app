@@ -15,7 +15,7 @@ function EditOffer() {
   
   useEffect(() => {
     dispatch(getOneOffer(id))
-     }, [id])
+     }, [dispatch,id])
 
   useEffect(() => {
     setofferUpdate(oldOffer)

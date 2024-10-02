@@ -14,7 +14,7 @@ function Reception() {
 
 useEffect(() => {
     dispatch(getUsers())
-     }, [])
+     }, [dispatch])
 
 
   return (
