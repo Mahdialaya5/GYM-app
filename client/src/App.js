@@ -22,14 +22,18 @@ import PublicRoute from "./components/routes/PublicRoute";
 function App() {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
+
   useEffect(() => {
     dispatch(getAllOffers())
-    if(token){
-      dispatch(getCurrent());
-    }
- 
+  
   }, [dispatch]);
 
+  useEffect(() => {
+    if (token) {
+      dispatch(getCurrent());
+    }
+  }, [dispatch,token]);
+  
   return (
        <Routes>
         <Route  path='/' element={<Home/>}/>
