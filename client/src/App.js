@@ -28,7 +28,7 @@ function App() {
       dispatch(getCurrent());
     }
  
-  }, []);
+  }, [dispatch]);
 
   return (
        <Routes>
