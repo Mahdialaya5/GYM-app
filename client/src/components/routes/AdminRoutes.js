@@ -9,7 +9,7 @@ function AdminRoutes({ children }) {
   const role = user.role;
 
   return ( 
-  <>{token && role == "admin" ? children : <Navigate to="/" />}</>
+  <>{token && role==="admin" ? children : <Navigate to="/" />}</>
   )
 }
 

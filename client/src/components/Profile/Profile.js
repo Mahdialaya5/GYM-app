@@ -8,7 +8,7 @@ import Navbar from '../Navbar/Navbar'
 
 function Profile() {
 
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const user = useSelector(state => state.userReducer.currentUser)
   
   useEffect(() => {

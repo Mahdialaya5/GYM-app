@@ -7,7 +7,7 @@ function ReceptionRoutes({children}) {
     const token=localStorage.getItem('token')
     const role=user.role
   return (
-    <>  {token && role=="reception"   ?children:<Navigate to="/" /> }</>
+    <>  {token && role==="reception"   ?children:<Navigate to="/" /> }</>
   )
 }
 

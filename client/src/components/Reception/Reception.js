@@ -8,7 +8,7 @@ import "./reception.css"
 function Reception() {
 
   const naviagte=useNavigate()
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const Users = useSelector(state => state.userReducer.allUsers)
   const Name=useSelector(state=>state.userReducer.currentUser)
 
