@@ -18,7 +18,9 @@ function Signup() {
   const disptach=useDispatch()
  
  const handleSubmit = (e) => {
+
       disptach(empty())
+  
    const data = new FormData();
     data.append("specialty", newSport)
     data.append("password", newPassword)
@@ -52,9 +54,10 @@ function Signup() {
       <br/>
     </div>
     <div className="checkbox mb-3">
-    <select className="form-select" id="floatingSelectGrid" defaultValue={"musculation"}   onChange={(e)=>setsport(e.target.value)} >
-        {list&&list.map((el)=><option key={el._id} value={el.specialty}>{el.specialty}</option>)}
-      
+    <select className="form-select" id="floatingSelectGrid"  onChange={(e)=>setsport(e.target.value)} >
+    <option value={'musculation'} > musculation </option>
+        {list&&list.map((el)=>el.specialty==='musculation' ? null : <option key={el._id} value={el.specialty}>{el.specialty}</option>)}
+    
       </select>
       <br/>
       <br/>
