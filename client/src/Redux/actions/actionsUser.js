@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_FAIL, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_FAIL, EDIT_USER, EDIT_USER_FAIL, GET_ALLUSERS_FAIL, GET_ALLUSERS_SUCCESS, GET_CURRENT_FAIL, GET_CURRENT_SUCCESS, GET_USERS_FAIL, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, NAVIGATE, PAY, PAY_FAIL, SEARCH } from "../const/const_user";
 
-
 export const addUser = (userBody,navigate) => async (dispatch) => {
     try {
       const resUser= await axios.post(`/api/user/register`, userBody )
@@ -52,7 +51,6 @@ export const getCurrent = () => async (dispatch) => {
           dispatch({ type: GET_CURRENT_FAIL, payload: error })
       }}
 
-
 export const editUser = (id, userBody, navigate) => async (dispatch) => {
         const token = localStorage.getItem("token");
         try {
@@ -74,7 +72,6 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
           
         } }
 
-
 export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
         const token = localStorage.getItem("token");
         try {
@@ -92,7 +89,6 @@ export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
             payload: err.message
           });
         } }
-
 
 export const logout = () => {
         return { type: LOGOUT } 

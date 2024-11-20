@@ -8,7 +8,9 @@ function Home() {
     <div className="home">
       <Navbar />
       <CardsList />
-      
+      <footer className="footer">
+      <p>&copy;Mahdi. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
