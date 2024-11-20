@@ -1,15 +1,24 @@
 const express = require('express');
+//const cors=require('cors')
 const connectdb = require('./config/connect');
 const path = require('path');
 const app = express();
 require('dotenv').config(); 
+
 const PORT=process.env.PORT
 
 
 connectdb();
 app.use(express.json());
 
-//app.use(cors(corsOptions))=> dev 
+/*const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions)) => dev 
+*/ 
+
 //app.use('/uploads', express.static(path.join(__dirname, 'uploads')))=> dev 
 
 // prod =>
